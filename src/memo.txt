@@ -1,0 +1,10 @@
+url = "https://api-for-missions-and-railways.herokuapp.com/users";
+			return fetch(url, JSON.stringify({
+				Authorization: "Bearer " + responseJson.token,
+			})).then(response2 => response2.json())
+			.then(responseJson2 => {
+				console.log(responseJson2);
+			}).catch(error => this.setState({
+					isLoading: false,
+					message: 'Something bad happened ' + error
+			}));
