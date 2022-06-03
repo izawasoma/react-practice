@@ -7,24 +7,43 @@ const Login = () => {
 	const [pass, setPass] = useState("");
 
 	let baseUrl = "https://api-for-missions-and-railways.herokuapp.com";
-	const onClickDisplayValue = () => {
+	
+	//ログイン処理
+	async function login(){
 		let parameter = {
 			"email":email,
 			"password":pass
 		}
 		let jsonParameter = JSON.stringify(parameter);
-
-		fetch(baseUrl + "/signin",{
+		let token;
+		//サインインする
+		await fetch(baseUrl + "/signin",{
 			method:"POST",
 			body: jsonParameter
 		}).then(
 			response => response.json()
 		).then(function(responseJson){
-			let token = responseJson.token;
-			console.log(token);
+			token = responseJson.token;
+		}).catch(function(error){
+			console.log(error);
+		});
+		//トークンを用いて名前を取り出す。
+		fetch(baseUrl + "/users",{
+			method:"GET",
+			headers:{
+				Authorization: "Bearer " + token
+			}
+		})
+		.then(res => res.json())
+		.then(function(json){
+			console.log(json);
 		}).catch(function(error){
 			console.log(error);
 		});	
+	}
+
+	const onClickDisplayValue = () => {
+		login();
 	}	
 
 	return (

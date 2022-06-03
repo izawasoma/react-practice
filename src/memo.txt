@@ -8,3 +8,5 @@ url = "https://api-for-missions-and-railways.herokuapp.com/users";
 					isLoading: false,
 					message: 'Something bad happened ' + error
 			}));
+
+            Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQyNjA1MDgsImlhdCI6IjIwMjItMDYtMDJUMTI6NDg6MjguMjM0MzU2MzQ2WiIsInN1YiI6IjU0NTQ2NTU3MzU0IiwidXNlcl9pZCI6IjQwNWYzMjFlLTNjOTItNGViYi1iN2RkLWRhMzYyMTk2MzVlMyJ9.OA6stGsh1FRWiqEIulc2en0ZfOMdvy9CJVLner7rnW8
