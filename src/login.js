@@ -23,7 +23,10 @@ const Login = () => {
 		}).then(
 			response => response.json()
 		).then(function(responseJson){
+			console.log(responseJson);
 			token = responseJson.token;
+			console.log(token);
+			localStorage.setItem('books_my_token', token);
 		}).catch(function(error){
 			console.log(error);
 		});
@@ -36,7 +39,9 @@ const Login = () => {
 		})
 		.then(res => res.json())
 		.then(function(json){
-			console.log(json);
+			console.log(json.name);
+			let msg = document.getElementById("msg");
+			msg.innerHTML = "ようこそ！" + json.name + "さん！";
 		}).catch(function(error){
 			console.log(error);
 		});	
